@@ -2,7 +2,10 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <form className="flex flex-col justify-start my-3 mx-auto">
+    <form
+      action="/"
+      className="flex flex-col justify-start my-3 mx-auto"
+    >
       <section className="my-3">
         <h1 className="text-3xl text-background font-bold italic">
           Upload your own recipe!
@@ -10,46 +13,74 @@ export default function Home() {
       </section>
       <section className=" bg-(--section-two-bg) text-foreground px-10 max-w-[1400px] rounded-[15px] shadow-[7px_9px_4px_rgba(0,0,0,0.25)]">
         <div className="flex flex-col justify-center my-10">
-          <form>
+          <div>
             <input
               className="text-xl px-1 py-1 mb-5 text-start border-b border-foreground outline-none text-foreground"
               type="text"
               placeholder="Name your recipe"
             />
-          </form>
+          </div>
+          <div className="flex flex-row gap-10 px-5 py-8 rounded-md text-background justify-between items-start">
+            <div className="flex flex-col pb-10 text-foreground ">
+              <label className="text-lg text-foreground font-semibold mb-3">
+                Description
+              </label>
+              <textarea
+                name="RecipeInstructions"
+                placeholder="Text area about the recipe, talk about your mom or grandmom or whatever, doesnt matter, everyone is going to scroll right by it anyway, but you do you babe"
+                rows={10}
+                cols={40}
+              />
+            </div>
+            {/* <label
+              htmlFor="image"
+              className="block text-foreground"
+            >
+              Upload a food picture
+            </label>
+
+            <input
+              type="file"
+              className="block text-foreground"
+              name="Image"
+              accept="image/png, image/jpeg"
+            /> */}
+            <Image
+              src="/carbonara.jpg"
+              width={280}
+              height={20}
+              alt="carbonara"
+              className="self-end items-start"
+            />
+          </div>
           <div className="flex gap-10 justify-between mb-4">
-            <form>
-              <input
-                type="text"
-                name="PrepTime"
-                placeholder="add preptime.. e.g 1h"
-                className="outline-none border-b border-foreground text-center"
-              />
-            </form>
-            <form>
-              <input
-                type="text"
-                name="CookingTime"
-                placeholder="add cookingtime.. e.g 30min"
-                className="outline-none border-b border-foreground text-center w-50"
-              />
-            </form>
-            <form>
-              <input
-                type="text"
-                name="Servings"
-                placeholder="Servings.. e.g 2"
-                className="outline-none border-b border-foreground text-center"
-              />
-            </form>
-            <form>
-              <input
-                type="text"
-                name="Mealtype"
-                placeholder="Mealtype.. e.g Italian"
-                className="outline-none border-b border-foreground text-center"
-              />
-            </form>
+            <input
+              type="text"
+              name="PrepTime"
+              placeholder="add preptime.. e.g 1h"
+              className="outline-none border-b border-foreground text-center"
+            />
+
+            <input
+              type="text"
+              name="CookingTime"
+              placeholder="add cookingtime.. e.g 30min"
+              className="outline-none border-b border-foreground text-center w-50"
+            />
+
+            <input
+              type="text"
+              name="Servings"
+              placeholder="Servings.. e.g 2"
+              className="outline-none border-b border-foreground text-center"
+            />
+
+            <input
+              type="text"
+              name="Mealtype"
+              placeholder="Mealtype.. e.g Italian"
+              className="outline-none border-b border-foreground text-center"
+            />
           </div>
           <div className="grid grid-cols-2 gap-8">
             <div className="flex flex-col bg-(--section-three-bg) px-5 py-5 rounded-md">
@@ -187,16 +218,18 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="flex flex-row flex-wrap bg-(--section-four-bg) px-5 py-5 rounded-md text-background outline-1">
-              <form action="/">
+            <div className="flex flex-col flex-wrap bg-(--section-four-bg) px-5 py-5 rounded-md text-background outline-1">
+              <label className="text-lg text-background font-semibold mb-3">
+                Instructions:
+              </label>
+              <div className="border-background rounded-lg border p-5">
                 <textarea
                   name="RecipeInstructions"
-                  defaultValue="Type your instructions here"
+                  placeholder="Type your instructions here"
                   rows={20}
                   cols={40}
-                  className="border-black"
                 />
-              </form>
+              </div>
             </div>
           </div>
         </div>
