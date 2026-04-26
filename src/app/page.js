@@ -17,6 +17,7 @@ export default function Home() {
             <input
               className="text-xl px-1 py-1 mb-5 text-start border-b border-foreground outline-none text-foreground"
               type="text"
+              name="RecipeName"
               placeholder="Name your recipe"
             />
           </div>
@@ -236,6 +237,7 @@ export default function Home() {
       </section>
       <button
         type="submit"
+        name="SubmitButton"
         className="py-3 px-15 text-lg bg-[#AAD0AF] self-end rounded-lg cursor-pointer mt-10 items-center"
       >
         Submit
